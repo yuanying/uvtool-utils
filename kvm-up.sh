@@ -34,7 +34,7 @@ do
   if check_host ${host}; then
     echo "Creating ${host} node..."
     uvt-kvm create ${host} release=trusty \
-              --bridge ${UV_KVM_VMS_BRIDGE} --cpu ${cpu} \
+              --bridge ${UV_KVM_VMS_BRIDGE} --cpu ${cpus} \
               --memory ${memory} --disk ${disk} \
               --user-data ${userdata_dir}/${host}.cfg
   fi
