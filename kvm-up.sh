@@ -8,18 +8,6 @@ userdata_dir=${script_dir}/userdata
 config_file=${script_dir}/kvm-config.sh
 source $config_file
 
-function check_host {
-  local host_name=$1
-  if [[ ${host_pattern} = "" ]]; then
-    return 0
-  fi
-  if [[ ${setting[1]} =~ ${host_pattern} ]]; then
-    return 0
-  else
-    return 1
-  fi
-}
-
 for line in `cat ${UV_KVM_VMS_FILE} | grep -v ^#`
 do
   host=`echo ${line} | cut -d ',' -f 1`
