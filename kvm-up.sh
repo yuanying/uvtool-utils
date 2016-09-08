@@ -5,7 +5,7 @@ host_pattern=${1:-""}
 script_dir=`dirname $0`
 userdata_dir=${script_dir}/userdata
 
-config_file=${1:-${script_dir}/kvm-config.sh}
+config_file=${script_dir}/kvm-config.sh
 source $config_file
 
 function check_host {
