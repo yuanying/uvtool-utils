@@ -31,4 +31,20 @@ runcmd:
   - [ ifdown, eth0 ]
   - [ ifup, eth0 ]
 
+write_files:
+  - path: /etc/neutron/dnsmasq.conf
+    permissions: "0644"
+    owner: "root"
+    content: |
+      dhcp-option-force=26,1400
+  - path: /etc/apt/sources.list.d/trusty-backports.list
+    permissions: "0644"
+    owner: "root"
+    content: |
+      deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse
+
+packages:
+  - git
+  - vim
+  - openvswitch-switch
 EOS
