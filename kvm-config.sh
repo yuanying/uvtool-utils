@@ -7,7 +7,7 @@ function check_host {
   if [[ ${host_pattern} = "" ]]; then
     return 0
   fi
-  if [[ ${setting[1]} =~ ${host_pattern} ]]; then
+  if [[ ${host_pattern} =~ ${host_name} ]]; then
     return 0
   else
     return 1
