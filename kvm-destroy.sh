@@ -19,7 +19,7 @@ do
   gateway=`echo ${line} | cut -d ',' -f 7`
   dns=`echo ${line} | cut -d ',' -f 8`
 
-  if check_host ${host}; then
+  if check_host ${host} ${host_pattern}; then
     echo "Destroing ${host} node..."
     uvt-kvm destroy ${host}
   fi

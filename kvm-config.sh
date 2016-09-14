@@ -3,6 +3,7 @@ script_dir=`dirname $0`
 
 function check_host {
   local host_name=$1
+  local host_pattern=$2
   if [[ ${host_pattern} = "" ]]; then
     return 0
   fi

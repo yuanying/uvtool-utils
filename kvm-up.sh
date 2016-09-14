@@ -19,7 +19,7 @@ do
   gateway=`echo ${line} | cut -d ',' -f 7`
   dns=`echo ${line} | cut -d ',' -f 8`
 
-  if check_host ${host}; then
+  if check_host ${host} ${host_pattern}; then
     echo "Creating ${host} node..."
     uvt-kvm create ${host} release=trusty \
               --bridge ${UV_KVM_VMS_BRIDGE} --cpu ${cpus} \
