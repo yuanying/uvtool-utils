@@ -46,5 +46,4 @@ write_files:
 packages:
   - git
   - vim
-  - openvswitch-switch
 EOS
