@@ -21,7 +21,7 @@ do
 
   if check_host ${host} ${host_pattern}; then
     echo "Creating ${host} node..."
-    uvt-kvm create ${host} release=trusty \
+    uvt-kvm create ${host} release=xenial \
               --bridge ${UV_KVM_VMS_BRIDGE} --cpu ${cpus} \
               --memory ${memory} --disk ${disk} \
               --user-data ${userdata_dir}/${host}.cfg

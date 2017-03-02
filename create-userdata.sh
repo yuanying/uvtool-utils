@@ -21,29 +21,14 @@ users:
       - "${public_key}"
 
 runcmd:
-  - [ rm, -f, /etc/network/interfaces.d/eth0.cfg]
-  - [ sh, -c, "echo 'auto eth0' >> /etc/network/interfaces.d/eth0.cfg "]
-  - [ sh, -c, "echo 'iface eth0 inet static' >> /etc/network/interfaces.d/eth0.cfg" ]
-  - [ sh, -c, "echo '  address ${ip}' >> /etc/network/interfaces.d/eth0.cfg" ]
-  - [ sh, -c, "echo '  netmask ${netmask}' >> /etc/network/interfaces.d/eth0.cfg" ]
-  - [ sh, -c, "echo '  gateway ${gateway}' >> /etc/network/interfaces.d/eth0.cfg"]
-  - [ sh, -c, "echo '  dns-nameservers ${dns}' >> /etc/network/interfaces.d/eth0.cfg"]
-  - [ ifdown, eth0 ]
-  - [ ifup, eth0 ]
+  - [ rm, -f, /etc/network/interfaces.d/ens3.cfg]
+  - [ sh, -c, "echo 'auto ens3' >> /etc/network/interfaces.d/ens3.cfg "]
+  - [ sh, -c, "echo 'iface ens3 inet static' >> /etc/network/interfaces.d/ens3.cfg" ]
+  - [ sh, -c, "echo '  address ${ip}' >> /etc/network/interfaces.d/ens3.cfg" ]
+  - [ sh, -c, "echo '  netmask ${netmask}' >> /etc/network/interfaces.d/ens3.cfg" ]
+  - [ sh, -c, "echo '  gateway ${gateway}' >> /etc/network/interfaces.d/ens3.cfg"]
+  - [ sh, -c, "echo '  dns-nameservers ${dns}' >> /etc/network/interfaces.d/ens3.cfg"]
+  - [ ifdown, ens3 ]
+  - [ ifup, ens3 ]
 
-write_files:
-  - path: /etc/neutron/dnsmasq.conf
-    permissions: "0644"
-    owner: "root"
-    content: |
-      dhcp-option-force=26,1400
-  - path: /etc/apt/sources.list.d/trusty-backports.list
-    permissions: "0644"
-    owner: "root"
-    content: |
-      deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse
-
-packages:
-  - git
-  - vim
 EOS
