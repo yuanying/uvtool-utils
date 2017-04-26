@@ -31,4 +31,10 @@ runcmd:
   - [ ifdown, ens3 ]
   - [ ifup, ens3 ]
 
+write_files:
+- path: /etc/neutron/dnsmasq.conf
+  permissions: "0644"
+  owner: "root"
+  content: |
+    dhcp-option-force=26,1400
 EOS
